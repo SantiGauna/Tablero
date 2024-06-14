@@ -105,10 +105,28 @@ const RepuestosList = () => {
       }}
     >
 
-      <div style={{ minHeight: '88vh', maxHeight: '80vh',  padding: '20px' }}>
-        <Typography variant="h4" component="h1" gutterBottom  sx={{textAlign:'center', padding:'50px'}}>
-          Listado de Repuestos
-        </Typography>
+      <div style={{ minHeight: '88vh', maxHeight: '80vh',  padding: '40px' }}>
+      <Typography
+      variant="h4"
+      component="h1"
+      gutterBottom
+      sx={{
+        textAlign: 'center',
+        padding: '20px',
+        fontFamily: 'Roboto, sans-serif',
+        fontWeight: 700,
+        color: '#ffffff',  // Texto blanco para un estilo urbano
+        backgroundColor: '#333333',  // Fondo oscuro urbano
+        borderRadius: '8px',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',  // Sombra sutil
+        textTransform: 'uppercase',  // Texto en mayúsculas
+        letterSpacing: '1px',  // Espaciado entre letras
+        maxWidth: '90%',  // Ancho máximo para asegurar la legibilidad en dispositivos móviles
+        margin: 'auto',  // Centrar en pantalla
+      }}
+    >
+      Listado de Repuestos
+    </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <IconButton onClick={handleOrdenNombreChange}>

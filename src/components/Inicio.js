@@ -3,6 +3,7 @@ import { Typography, Container, Box, Button, Zoom} from '@mui/material';
 import backgroundImage from '../accesorios-coche-espacio-copia.jpg'; 
 import { Link } from 'react-router-dom';
 import '@fontsource/roboto';
+import logo from './logaso.jpg'; // Asegúrate de que la ruta del logo sea correcta
 
 const Inicio = () => {
   const [checked, setChecked] = useState(false);
@@ -46,9 +47,18 @@ const Inicio = () => {
       }}
     >
       <Container sx={{ overflow: 'hidden' }}>
+      <img
+          src={logo}
+          alt="Logo"
+          style={{
+            width: '200px',  // Ajusta el tamaño del logo según sea necesario
+            height: 'auto',
+            marginBottom: '20px',  // Espacio opcional entre el logo y el texto
+          }}
+        />
         <Zoom in={checked} style={{ transitionDelay: '100ms' }}>
           <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Roboto', fontWeight: 'bold', textAlign: 'center' }}>
-            Bienvenido a SG Repuestos
+            Bienvenido a G&L Repuestos
           </Typography>
         </Zoom>
         <Zoom in={checked} style={{ transitionDelay: '200ms' }}>

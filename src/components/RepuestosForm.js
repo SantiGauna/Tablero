@@ -85,7 +85,23 @@ const RepuestoForm = () => {
       }}
     >
     <Container sx={{textAlign:'center', padding:'50px'}}>
-      <Typography variant="h4" component="h1" gutterBottom >
+      
+      <Typography  variant="h4"
+      component="h1"
+      gutterBottom
+      sx={{
+        textAlign: 'center',
+        padding: '20px',
+        fontFamily: 'Roboto, sans-serif',
+        fontWeight: 700,
+        color: '#ffffff',  // Texto blanco para un estilo urbano
+        backgroundColor: '#333333',  // Fondo oscuro urbano
+        borderRadius: '8px',
+        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',  // Sombra sutil
+        textTransform: 'uppercase',  // Texto en mayúsculas
+        letterSpacing: '1px',  // Espaciado entre letras
+        maxWidth: '90%',  // Ancho máximo para asegurar la legibilidad en dispositivos móviles
+        margin: 'auto'}}>  
         {id ? 'Editar Repuesto' : 'Agregar Repuesto'}
       </Typography>
       <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px' }}>
