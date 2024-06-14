@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow: hidden; /* Evita el desplazamiento horizontal y vertical en toda la página */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-x: hidden; /* Evita el desplazamiento horizontal en el contenedor principal */
+}
+
+.repuestos-container {
+  max-height: calc(100vh - 64px); /* Altura máxima igual a la altura de la ventana - altura del app bar */
+  overflow-y: auto; /* Permitir el desplazamiento vertical si es necesario */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
