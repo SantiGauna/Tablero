@@ -15,14 +15,14 @@ import {
   DialogContentText,
   DialogTitle,
   Slide,
-  IconButton,
-
+  IconButton
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeIcon from '@mui/icons-material/Mode';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SearchAppBar from './SearchAppBar';
+import backgroundImage from '../accesorios-coche-espacio-copia.jpg'; 
 
 const RepuestosList = () => {
   const [repuestos, setRepuestos] = useState([]);
@@ -81,13 +81,33 @@ const RepuestosList = () => {
 
   return (
     <React.Fragment>
+    
       <SearchAppBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <br/>
-      <br/>
-      <br/>
-      <div style={{ minHeight: '88vh', maxHeight: '80vh', overflowY: 'auto', padding: '10px 20px' }}>
-        <Typography variant="h4" component="h1" gutterBottom color={'primary'}>
-          Repuestos
+      <Box
+      sx={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        color: 'white',
+        padding: '0 10px',
+        position: 'relative',
+        overflow: 'auto',
+        zIndex: 1,
+      }}
+    >
+
+      <div style={{ minHeight: '88vh', maxHeight: '80vh',  padding: '20px' }}>
+        <Typography variant="h4" component="h1" gutterBottom  sx={{textAlign:'center', padding:'50px'}}>
+          Listado de Repuestos
         </Typography>
         <Grid container spacing={3}>
           <Grid item xs={12} sx={{ display: 'grid', justifyContent: 'flex-end' }}>
@@ -101,17 +121,15 @@ const RepuestosList = () => {
           {filteredAndSortedRepuestos.map(repuesto => (
             <Grid item key={repuesto.id} xs={12} sm={6} md={4}>
               <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
-                <Typography component="div" style={{ fontWeight: 'bold', marginBottom: '10px' }}>{repuesto.Nombre}</Typography>
-                <Typography style={{ marginBottom: '10px' }}>{repuesto.Modelo}</Typography>
                 {/* Mostrar la imagen */}
-                <img src={repuesto.imageURL} alt={repuesto.Nombre} style={{ maxWidth: '100%', height: '150px', marginBottom: '10px' }} />
+                <img src={repuesto.imageURL} alt={repuesto.Nombre} style={{ maxWidth: '100%', height: 'auto', marginBottom: '10px' }} />
                 <Typography>${repuesto.Precio}</Typography>
                 <Typography style={{ marginBottom: '10px' }}>{repuesto.Descripcion}</Typography>
                 <Typography style={{ marginBottom: '10px' }}>{new Date(repuesto.Fecha_Alta.seconds * 1000).toLocaleDateString()}</Typography>
                 <Button component={Link} to={`/editar/${repuesto.id}`} variant="contained" startIcon={<ModeIcon/>} color="primary" style={{ marginRight: '10px' }}>
                   Editar
                 </Button>
-                <Button onClick={() => handleOpenDialog(repuesto.id)} variant="outlined" startIcon={<DeleteIcon />} color="secondary">
+                <Button onClick={() => handleOpenDialog(repuesto.id)} variant="outlined" startIcon={<DeleteIcon />} color="error">
                   Eliminar
                 </Button>
               </Paper>
@@ -145,6 +163,7 @@ const RepuestosList = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      </Box>
     </React.Fragment>
   );
 };
