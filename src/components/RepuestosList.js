@@ -15,7 +15,8 @@ import {
   DialogContentText,
   DialogTitle,
   Slide,
-  IconButton
+  IconButton,
+
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeIcon from '@mui/icons-material/Mode';
@@ -65,6 +66,7 @@ const RepuestosList = () => {
   const handleOrdenNombreChange = () => {
     setOrdenNombre(orden => (orden === 'asc' ? 'desc' : 'asc'));
   };
+  
 
   // Filtrar y ordenar los repuestos basados en el término de búsqueda y el orden del nombre
   const filteredAndSortedRepuestos = repuestos
@@ -88,21 +90,21 @@ const RepuestosList = () => {
           Repuestos
         </Typography>
         <Grid container spacing={3}>
-          <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Grid item xs={12} sx={{ display: 'grid', justifyContent: 'flex-end' }}>
             <IconButton onClick={handleOrdenNombreChange}>
               {ordenNombre === 'asc' ? <ArrowUpwardIcon color="primary" /> : <ArrowDownwardIcon color="primary" />}
             </IconButton>
             <Typography variant="subtitle2">{ordenNombre === 'asc' ? 'A-Z' : 'Z-A'}</Typography>
           </Grid>
         </Grid>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {filteredAndSortedRepuestos.map(repuesto => (
             <Grid item key={repuesto.id} xs={12} sm={6} md={4}>
               <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
                 <Typography component="div" style={{ fontWeight: 'bold', marginBottom: '10px' }}>{repuesto.Nombre}</Typography>
                 <Typography style={{ marginBottom: '10px' }}>{repuesto.Modelo}</Typography>
                 {/* Mostrar la imagen */}
-                <img src={repuesto.imageURL} alt={repuesto.Nombre} style={{ maxWidth: '100%', height: 'auto', marginBottom: '10px' }} />
+                <img src={repuesto.imageURL} alt={repuesto.Nombre} style={{ maxWidth: '100%', height: '150px', marginBottom: '10px' }} />
                 <Typography>${repuesto.Precio}</Typography>
                 <Typography style={{ marginBottom: '10px' }}>{repuesto.Descripcion}</Typography>
                 <Typography style={{ marginBottom: '10px' }}>{new Date(repuesto.Fecha_Alta.seconds * 1000).toLocaleDateString()}</Typography>

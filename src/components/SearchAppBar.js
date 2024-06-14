@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Typography, IconButton, InputBase, alpha } from '@mui/
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import HomeIcon from '@mui/icons-material/Home';
+import ListIcon from '@mui/icons-material/List'; 
 import { Link, useNavigate } from 'react-router-dom';
 
 const SearchAppBar = ({ searchTerm, setSearchTerm }) => {
@@ -17,6 +18,10 @@ const SearchAppBar = ({ searchTerm, setSearchTerm }) => {
 
   const handleAddClick = () => {
     navigate('/nuevo');
+  };
+
+  const handleRepuestosListClick = () => {
+    navigate('/repuestos'); 
   };
 
   return (
@@ -42,6 +47,9 @@ const SearchAppBar = ({ searchTerm, setSearchTerm }) => {
         </IconButton>
         <IconButton color="inherit" onClick={handleAddClick}>
           <AddIcon />
+        </IconButton>
+        <IconButton color="inherit" onClick={handleRepuestosListClick}>
+          <ListIcon /> 
         </IconButton>
       </Toolbar>
     </AppBar>
