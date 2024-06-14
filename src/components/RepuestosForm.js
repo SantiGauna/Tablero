@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchRepuesto, createRepuesto, updateRepuesto } from '../services/repuestosService';
-import { Button, TextField, Container, Typography, Snackbar, Paper } from '@mui/material';
+import { Button, TextField, Container, Typography, Snackbar, Paper, Box } from '@mui/material';
 import SearchAppBar from './SearchAppBar';
+import { Link } from 'react-router-dom';
+import backgroundImage from '../accesorios-coche-espacio-copia.jpg'; 
+
+
 
 const RepuestoForm = () => {
   const { id } = useParams();
@@ -59,15 +63,32 @@ const RepuestoForm = () => {
   return (
     <React.Fragment>
     <SearchAppBar />
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
+    <Box
+      sx={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        color: 'white',
+        padding: '0 10px',
+        position: 'relative',
+        overflow: 'auto',
+        zIndex: 1,
+      }}
+    >
+    <Container sx={{textAlign:'center', padding:'50px'}}>
+      <Typography variant="h4" component="h1" gutterBottom >
         {id ? 'Editar Repuesto' : 'Agregar Repuesto'}
       </Typography>
-      <Paper elevation={3} sx={{ padding: 2 }}>
+      <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px' }}>
         <form onSubmit={handleSubmit}>
           <TextField
             label="Nombre"
@@ -105,9 +126,25 @@ const RepuestoForm = () => {
             fullWidth
             margin="normal"
           />
-          <Button variant="contained" color="primary" type="submit">
-            {id ? 'Actualizar' : 'Guardar'}
-          </Button>
+
+          <TextField
+            label="Ingrese la URL de la imágen"
+            name="imageURL"
+            value={repuesto.imageURL}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+
+          <div>
+              <Button variant="contained" color="primary" type="submit" style={{ marginRight: '10px' }}>
+                  {id ? 'Actualizar' : 'Guardar'}
+              </Button>
+              <Button variant='contained' color="error" component={Link} to={`/repuestos`} >
+                  Cancelar
+              </Button>
+          </div>
+
         </form>
       </Paper>
       <Snackbar
@@ -117,6 +154,7 @@ const RepuestoForm = () => {
         message={snackbarMessage}
       />
     </Container>
+    </Box>
     </React.Fragment>
   );
 };
