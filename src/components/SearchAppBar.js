@@ -27,6 +27,7 @@ const SearchAppBar = ({ searchTerm, setSearchTerm }) => {
           sx={{
             height: 40,
             marginRight: 2,
+            borderRadius: '50%',
           }}
           alt="Logaso"
           src={logo}
@@ -46,13 +47,27 @@ const SearchAppBar = ({ searchTerm, setSearchTerm }) => {
             style={{ color: 'inherit', paddingLeft: 32 }}
           />
         </div>
-        <IconButton color="inherit" component={Link} to="/">
+        <IconButton 
+          color="inherit" 
+          component={Link} 
+          to="/" 
+          title="Inicio"
+        >
           <HomeIcon />
         </IconButton>
-        <IconButton color="inherit" component={Link} to="/repuestos">
+        <IconButton 
+          color="inherit" 
+          component={Link} 
+          to="/repuestos" 
+          title="Lista de Repuestos"
+        >
           <ListIcon />
         </IconButton>
-        <IconButton color="inherit" onClick={handleAddClick}>
+        <IconButton 
+          color="inherit" 
+          onClick={handleAddClick} 
+          title="Agregar Repuesto"
+        >
           <AddIcon />
         </IconButton>
       </Toolbar>

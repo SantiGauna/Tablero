@@ -5,6 +5,7 @@ import { Button, TextField, Container, Typography, Snackbar, Paper, Box } from '
 import SearchAppBar from './SearchAppBar';
 import { Link } from 'react-router-dom';
 import backgroundImage from '../accesorios-coche-espacio-copia.jpg'; 
+import SaveIcon from '@mui/icons-material/Save';
 
 
 
@@ -84,7 +85,7 @@ const RepuestoForm = () => {
         zIndex: 1,
       }}
     >
-    <Container sx={{textAlign:'center', padding:'50px'}}>
+    <Container style={{ minHeight: '88vh', maxHeight: '80vh',   }}>
       
       <Typography  variant="h4"
       component="h1"
@@ -100,10 +101,12 @@ const RepuestoForm = () => {
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',  // Sombra sutil
         textTransform: 'uppercase',  // Texto en mayúsculas
         letterSpacing: '1px',  // Espaciado entre letras
-        maxWidth: '90%',  // Ancho máximo para asegurar la legibilidad en dispositivos móviles
-        margin: 'auto'}}>  
+        maxWidth: '500px',  // Ancho máximo para asegurar la legibilidad en dispositivos móviles
+        margin: 'auto',  // Centrar en pantalla
+      }}>  
         {id ? 'Editar Repuesto' : 'Agregar Repuesto'}
       </Typography>
+
       <Paper elevation={3} sx={{ padding: '20px', marginBottom: '20px' }}>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -153,7 +156,7 @@ const RepuestoForm = () => {
           />
 
           <div>
-              <Button variant="contained" color="primary" type="submit" style={{ marginRight: '10px' }}>
+              <Button variant="contained" color="primary" type="submit" startIcon={<SaveIcon/>} style={{ marginRight: '10px' }}>
                   {id ? 'Actualizar' : 'Guardar'}
               </Button>
               <Button variant='contained' color="error" component={Link} to={`/repuestos`} >

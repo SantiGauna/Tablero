@@ -47,6 +47,7 @@ const Inicio = () => {
       }}
     >
       <Container sx={{ overflow: 'hidden' }}>
+      <Zoom in={checked} style={{ transitionDelay: '100ms' }}>
       <img
           src={logo}
           alt="Logo"
@@ -54,20 +55,22 @@ const Inicio = () => {
             width: '200px',  // Ajusta el tamaño del logo según sea necesario
             height: 'auto',
             marginBottom: '20px',  // Espacio opcional entre el logo y el texto
+            borderRadius: '50%',
           }}
         />
-        <Zoom in={checked} style={{ transitionDelay: '100ms' }}>
+        </Zoom>
+        <Zoom in={checked} style={{ transitionDelay: '200ms' }}>
           <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Roboto', fontWeight: 'bold', textAlign: 'center' }}>
             Bienvenido a G&L Repuestos
           </Typography>
         </Zoom>
-        <Zoom in={checked} style={{ transitionDelay: '200ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: '300ms' }}>
           <Typography variant="h6" sx={{ fontFamily: 'Roboto', fontStyle: 'italic', textAlign: 'center' }}>
             Tu fuente confiable para repuestos de calidad.
           </Typography>
         </Zoom>
         <br />
-        <Zoom in={checked} style={{ transitionDelay: '300ms' }}>
+        <Zoom in={checked} style={{ transitionDelay: '400ms' }}>
         <Button
           color="inherit"
           variant="outlined"
