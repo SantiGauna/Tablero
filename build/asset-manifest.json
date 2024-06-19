@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.79c22874.css",
-    "main.js": "/static/js/main.c1fe897d.js",
+    "main.js": "/static/js/main.d98188ba.js",
     "static/js/453.00b0b951.chunk.js": "/static/js/453.00b0b951.chunk.js",
     "static/media/accesorios-coche-espacio-copia.jpg": "/static/media/accesorios-coche-espacio-copia.343b82c73f26d9265e46.jpg",
     "static/media/logaso.jpg": "/static/media/logaso.a8f0c04ebd2239b96f25.jpg",
@@ -21,11 +21,11 @@
     "static/media/roboto-greek-ext-400-normal.woff": "/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
     "index.html": "/index.html",
     "main.79c22874.css.map": "/static/css/main.79c22874.css.map",
-    "main.c1fe897d.js.map": "/static/js/main.c1fe897d.js.map",
+    "main.d98188ba.js.map": "/static/js/main.d98188ba.js.map",
     "453.00b0b951.chunk.js.map": "/static/js/453.00b0b951.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.79c22874.css",
-    "static/js/main.c1fe897d.js"
+    "static/js/main.d98188ba.js"
   ]
 }
