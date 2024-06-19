@@ -24,7 +24,6 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SearchAppBar from './SearchAppBar';
 import backgroundImage from '../accesorios-coche-espacio-copia.jpg';
 
-
 const RepuestosList = () => {
   const [repuestos, setRepuestos] = useState([]);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -39,12 +38,14 @@ const RepuestosList = () => {
     const fetchData = async () => {
       try {
         const repuestos = await fetchRepuestos();
+        if (!Array.isArray(repuestos)) {
+          throw new Error("Datos no válidos");
+        }
         setRepuestos(repuestos);
-        // Start showing cards one by one
         repuestos.forEach((_, index) => {
           setTimeout(() => {
             setVisibleCards(prev => prev + 1);
-          }, index * 200); 
+          }, index * 200);
         });
       } catch (error) {
         console.error("Error fetching repuestos:", error);
@@ -64,11 +65,17 @@ const RepuestosList = () => {
   };
 
   const handleConfirmDelete = async () => {
-    await deleteRepuesto(selectedId);
-    setRepuestos(repuestos.filter(repuesto => repuesto.id !== selectedId));
-    setSnackbarMessage('Repuesto eliminado exitosamente');
-    setOpenSnackbar(true);
-    handleCloseDialog();
+    try {
+      await deleteRepuesto(selectedId);
+      setRepuestos(repuestos.filter(repuesto => repuesto.id !== selectedId));
+      setSnackbarMessage('Repuesto eliminado exitosamente');
+      setOpenSnackbar(true);
+      handleCloseDialog();
+    } catch (error) {
+      console.error("Error deleting repuesto:", error);
+      setSnackbarMessage('Error eliminando repuesto');
+      setOpenSnackbar(true);
+    }
   };
 
   const handleOrdenNombreChange = () => {
