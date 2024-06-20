@@ -166,14 +166,18 @@ const RepuestoForm = () => {
 
         </form>
       </Paper>
-      <Snackbar
+      
+    </Container>
+    </Box>
+    <Snackbar
         open={openSnackbar}
         autoHideDuration={6000}
         onClose={() => setOpenSnackbar(false)}
         message={snackbarMessage}
+        ContentProps={{
+          style: { backgroundColor: '#00FF00', color: 'black', fontWeight: 'bold', justifyContent: 'center', },
+        }}
       />
-    </Container>
-    </Box>
     </React.Fragment>
   );
 };

@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom si estás utilizando enrutamiento
 
 const Footer = () => {
     return (
-       
         <footer style={{
-            
             backgroundColor: '#333',
             color: '#fff',
             textAlign: 'center',
@@ -16,8 +15,10 @@ const Footer = () => {
             borderTop: '1px solid #666', // Agrega una línea superior para separar del contenido principal
         }}>
             <p style={{ margin: '0' }}>&copy; 2024 Repuestos Gauna & Lazaro. Todos los derechos reservados.</p>
+            <p style={{ margin: '0' }}>
+                <Link to="/politica" style={{ color: '#fff', textDecoration: 'underline' }}>Política de Privacidad</Link>
+            </p>
         </footer>
-       
     );
 }
 

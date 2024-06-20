@@ -4,6 +4,7 @@ import RepuestosList from './components/RepuestosList';
 import RepuestoForm from './components/RepuestosForm';
 import Inicio from './components/Inicio';
 import Footer from './components/Footer'; // Importa el componente de footer
+import PoliticaPrivacidad from './components/PoliticaPrivacidad';
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/repuestos" element={<RepuestosList />} />
         <Route path="/nuevo" element={<RepuestoForm />} />
         <Route path="/editar/:id" element={<RepuestoForm />} />
+        <Route path="/politica" element={<PoliticaPrivacidad />} />
       </Routes>
       <Footer />
     </Router>

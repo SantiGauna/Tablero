@@ -167,12 +167,7 @@ const RepuestosList = () => {
           <br />
           <br />
         </div>
-        <Snackbar
-          open={openSnackbar}
-          autoHideDuration={6000}
-          onClose={() => setOpenSnackbar(false)}
-          message={snackbarMessage}
-        />
+
         <Dialog
           open={openDialog}
           onClose={handleCloseDialog}
@@ -194,6 +189,15 @@ const RepuestosList = () => {
           </DialogActions>
         </Dialog>
       </Box>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+        message={snackbarMessage}
+        ContentProps={{
+          style: { backgroundColor: '#00FF00', color: 'black', fontWeight: 'bold', justifyContent: 'center', },
+        }}
+      />
     </React.Fragment>
   );
 };
